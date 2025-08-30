@@ -1,0 +1,38 @@
+{
+  "name": "read-aloud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "prebuild:worker": "node build.js --target=workerd --debug",
+    "dev:worker": "wrangler dev",
+    "deploy": "wrangler deploy --minify --outdir=dist-worker",
+    "dev:node": "tsx watch entries/node.ts",
+    "build:node": "node build.js --target=node",
+    "build:vercel": "node build.js --target=vercel",
+    "vercel-build": "pnpm run build:vercel"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hono/node-server": "^1.13.7",
+    "@hono/swagger-ui": "^0.4.1",
+    "@hono/zod-openapi": "^0.16.2",
+    "hono": "^4.6.3",
+    "xast-util-to-xml": "^4.0.0",
+    "xastscript": "^4.0.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.2",
+    "@cloudflare/workers-types": "^4.20250506.0",
+    "@types/node": "20.8.3",
+    "@types/xast": "^2.0.4",
+    "esbuild": "^0.25.9",
+    "tsx": "^4.20.5",
+    "typescript": "~5.6.2",
+    "wrangler": "^4.14.1"
+  },
+  "packageManager": "pnpm@9.11.0+sha256.1c0e33f70e5df9eede84a357bdfa0b1f9dba6e58194628d48a1055756f553754"
+}
